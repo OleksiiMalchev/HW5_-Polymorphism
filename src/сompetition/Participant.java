@@ -1,16 +1,8 @@
 package сompetition;
 
 public interface Participant {
-    void run();
+    boolean run(Obstacle obstacle);
 
-    void cantRun();
+    boolean jump(Obstacle obstacle);
 
-    void jump();
-
-    void cantJupm();
-
-
-    int getMaxRun();
-
-    int getMaxJump();
 }

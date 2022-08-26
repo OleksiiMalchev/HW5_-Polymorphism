@@ -6,7 +6,7 @@ public class Triangle implements GeometricFigureArea {
 
     public Triangle(double sideA, double sideB, double sideC) {
         if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
-            throw new ArithmeticException("The radius of the circle cannot be negative and be equal to zero");
+            throw new ArithmeticException("The triangle of the circle cannot be negative and be equal to zero");
         }
         this.sideA = sideA;
         this.sideB = sideB;

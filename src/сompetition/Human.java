@@ -10,28 +10,30 @@ public class Human implements Participant {
         this.maxJump = maxJump;
     }
 
-    public void run() {
-        System.out.println("Referee - " + name + " pass the obstacle treadmill");
+    public boolean run(Obstacle obstacle) {
+        if (obstacle instanceof Treadmill) {
+            if (obstacle.getSizeObstacle() < maxRun) {
+                System.out.println("Referee - " + name + " pass the obstacle treadmill");
+                return true;
+            } else {
+                System.out.println("Referee - " + name + " could not pass the obstacle treadmill and is eliminated. His can run only " + maxRun + " metres");
+                return false;
+            }
+        }
+        return true;
     }
 
-    public void cantRun() {
-        System.out.println("Referee - " + name + " could not pass the obstacle treadmill and is eliminated. His can run only " + maxRun + " metres");
-    }
-
-    public void jump() {
-        System.out.println("Referee - " + name + " pass the obstacle wall");
-    }
-
-    public void cantJupm() {
-        System.out.println("Referee - " + name + " could not pass the obstacle wall and is eliminated. His can run jupm " + maxJump + " metres ");
-    }
-
-    public int getMaxRun() {
-        return maxRun;
-    }
-
-    public int getMaxJump() {
-        return maxJump;
+    public boolean jump(Obstacle obstacle) {
+        if (obstacle instanceof Wall) {
+            if (obstacle.getSizeObstacle() < maxJump) {
+                System.out.println("Referee - " + name + " pass the obstacle wall");
+                return true;
+            } else {
+                System.out.println("Referee - " + name + " could not pass the obstacle wall and is eliminated. His can jump only " + maxJump + " metres");
+                return false;
+            }
+        }
+        return true;
     }
 }
 
