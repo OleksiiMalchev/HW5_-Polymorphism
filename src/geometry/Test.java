@@ -7,9 +7,9 @@ public class Test {
         geometricFigureArea[0] = new Circle(10);
         geometricFigureArea[1] = new Circle(25);
         geometricFigureArea[2] = new Circle(30);
-        geometricFigureArea[3] = new Triangle(30, 50);
-        geometricFigureArea[4] = new Triangle(100, 60);
-        geometricFigureArea[5] = new Triangle(80, 30);
+        geometricFigureArea[3] = new Triangle(30, 50, 30);
+        geometricFigureArea[4] = new Triangle(100, 60, 40);
+        geometricFigureArea[5] = new Triangle(80, 30, 50);
         geometricFigureArea[6] = new Square(100);
         geometricFigureArea[7] = new Square(120);
         geometricFigureArea[8] = new Square(170);

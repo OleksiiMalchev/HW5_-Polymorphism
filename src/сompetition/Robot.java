@@ -1,15 +1,37 @@
 package сompetition;
 
-public class Robot extends Participant {
-    public Robot(String name) {
-        super(name);
+public class Robot implements Participant {
+    private int maxRun, maxJump;
+    private String name;
+
+    public Robot(String name, int maxRun, int maxJump) {
+        this.name = name;
+        this.maxRun = maxRun;
+        this.maxJump = maxJump;
     }
 
     public void run() {
-        System.out.println("I am robot. I'm running");
+        System.out.println("Referee - " + name + " pass the obstacle treadmill");
+    }
+
+    public void cantRun() {
+        System.out.println("Referee - " + name + " could not pass the obstacle treadmill and is eliminated. His can run only " + maxRun + " metres");
     }
 
     public void jump() {
-        System.out.println("I am robot. I'm jumping");
+        System.out.println("Referee - " + name + " pass the obstacle wall");
+    }
+
+    public void cantJupm() {
+        System.out.println("Referee - " + name + " could not pass the obstacle wall and is eliminated. His can run jupm " + maxJump + " metres ");
+
+    }
+
+    public int getMaxRun() {
+        return maxRun;
+    }
+
+    public int getMaxJump() {
+        return maxJump;
     }
 }

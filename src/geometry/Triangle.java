@@ -1,43 +1,58 @@
 package geometry;
 
 public class Triangle implements GeometricFigureArea {
-    private double side;
-    private double height;
+    private double sideA, sideB, sideC;
 
-    public Triangle(double side, double height) {
-        if (side <= 0 || height <= 0) {
+
+    public Triangle(double sideA, double sideB, double sideC) {
+        if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
             throw new ArithmeticException("The radius of the circle cannot be negative and be equal to zero");
         }
-        this.side = side;
-        this.height = height;
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
+
 
     }
 
     @Override
     public double figureArea() {
-        return (side * height) / 2;
+        double per = (sideA + sideB + sideC) / 2;
+
+        return Math.sqrt(per * (per - sideA) * (per - sideB) * (per - sideC));
     }
 
-    public double getSide() {
-        return side;
+    public double getSideA() {
+        return sideA;
     }
 
-    public double getHeight() {
-        return height;
+    public double getSideB() {
+        return sideB;
     }
 
-    public void setSide(double side) {
-        if (side <= 0) {
+    public double getSideC() {
+        return sideC;
+    }
+
+    public void setSideA(double sideA) {
+        if (sideA <= 0) {
             throw new ArithmeticException("The side of a triangle cannot be negative and equal to zero");
         }
-        this.side = side;
+        this.sideA = sideA;
     }
 
-    public void setHeight(double height) {
-        if (height <= 0) {
-            throw new ArithmeticException("The height of a triangle cannot be negative and equal to zero");
+    public void setSideB(double sideB) {
+        if (sideB <= 0) {
+            throw new ArithmeticException("The side of a triangle cannot be negative and equal to zero");
         }
-        this.height = height;
+        this.sideB = sideB;
+    }
+
+    public void setSideC(double sideC) {
+        if (sideC <= 0) {
+            throw new ArithmeticException("The side of a triangle cannot be negative and equal to zero");
+        }
+        this.sideC = sideC;
     }
 
 }

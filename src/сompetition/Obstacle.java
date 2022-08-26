@@ -1,9 +1,6 @@
 package сompetition;
 
-public class Obstacle {
+public interface Obstacle {
 
-    public int getSizeObstacle(){
-        return 0;
-    }
-
+     int getSizeObstacle();
 }

@@ -3,39 +3,52 @@ package сompetition;
 public class Test {
     public static void main(String[] args) {
 
-
         Participant[] participants = new Participant[10];
-        participants[0] = new Human("Piter");
-        participants[1] = new Human("Kris");
-        participants[2] = new Human("Ivan");
-        participants[3] = new Cat("Murzik");
-        participants[4] = new Cat("Tom");
-        participants[5] = new Human("Bazilio");
-        participants[6] = new Human("Rok");
-        participants[7] = new Human("Stell");
-        participants[8] = new Human("Atos");
+        participants[0] = new Human("Piter",3000,5);
+        participants[1] = new Human("Kris",6000,2);
+        participants[2] = new Human("Ivan",5000,2);
+        participants[3] = new Cat("Murzik", 150, 250);
+        participants[4] = new Cat("Tom", 250, 350);
+        participants[5] = new Cat("Bazilio",2000,2);
+        participants[6] = new Robot("Rok",5000,3);
+        participants[7] = new Human("Stell",2000,5);
+        participants[8] = new Human("Atos",1500,6);
 
         Obstacle[] obstacle = new Obstacle[50];
-        obstacle[0] = new Treadmill();
-        obstacle[1] = new Treadmill();
-        obstacle[2] = new Wall();
-        obstacle[3] = new Wall();
-        obstacle[4] = new Wall();
-        obstacle[5] = new Treadmill();
+        obstacle[0] = new Treadmill(99);
+        obstacle[1] = new Treadmill(100);
+        obstacle[2] = new Wall(1);
+        obstacle[3] = new Wall(2);
+        obstacle[4] = new Wall(3);
+        obstacle[5] = new Treadmill(5000);
+        obstacle[6] = new Treadmill(5000);
 
         сompetition(participants, obstacle);
 
     }
 
-    public static void сompetition(Participant[] participants, Obstacle[] obstacles) {
-
+    private static void сompetition(Participant[] participants, Obstacle[] obstacle) {
         for (Participant participant : participants) {
-            for (Obstacle obstacle : obstacles) {
-                if (participant == null || obstacle == null) {
+            for (Obstacle obstacles : obstacle) {
+                if (participant == null) {
                     break;
+                } else {
+                    if (obstacles instanceof Treadmill) {
+                        if (obstacles.getSizeObstacle() < participant.getMaxRun()) {
+                            participant.run();
+                        } else {
+                            participant.cantRun();
+                            break;
+                        }
+                    } else {
+                        if (obstacles.getSizeObstacle() < participant.getMaxJump()) {
+                            participant.jump();
+                        } else {
+                            participant.cantJupm();
+                            break;
+                        }
+                    }
                 }
-                participant.overcome(obstacle);
-
             }
         }
     }
